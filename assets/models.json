@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Holzbaumodell 1",
+    "image": "https://via.placeholder.com/350x150",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat.",
+    "filename": "17-sparrenpfettenanker.ply"
+  },
+  {
+    "id": 2,
+    "name": "Holzbaumodell 2",
+    "image": "https://via.placeholder.com/350x150",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat.",
+    "filename": "17-sparrenpfettenanker.ply"
+  }
+]

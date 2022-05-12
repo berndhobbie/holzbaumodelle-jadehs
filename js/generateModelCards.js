@@ -31,7 +31,7 @@ getAllModels().then((models) => {
     cardLink.classList.add('btn', 'btn-primary', 'shadow-sm', 'fw-bold');
     cardLink.innerHTML = 'Zum Modell';
     //generate the id as param for the link
-    cardLink.href = `./pages/showModel.html?id=${model.id}`;
+    cardLink.href = `pages/showModel.html?id=${model.id}`;
 
     //year of the model
     if (model?.year) {

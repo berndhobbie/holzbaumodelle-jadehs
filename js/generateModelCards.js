@@ -4,7 +4,7 @@ getAllModels().then((models) => {
   //generate a bootstrap card for each model and add it to the modelRow
   models.forEach((model) => {
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('card', 'p-0', 'm-2');
     card.style.width = '18rem';
     const img = document.createElement('img');
     img.classList.add('card-img-top');

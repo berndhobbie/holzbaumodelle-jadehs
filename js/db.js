@@ -2,7 +2,6 @@
 const getAllModels = async () => {
   const host = window.location.host;
   const jsonModelDataUrl = `${window.location.protocol}//${host}/assets/models.json`;
-  console.log(jsonModelDataUrl);
   const data = await fetch(jsonModelDataUrl);
   const json = await data.json();
   return json;

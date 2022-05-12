@@ -1,15 +1,15 @@
 const modelRow = document.getElementById('modelRow');
 
 getAllModels().then((models) => {
+  allModels = models;
   //generate a bootstrap card for each model and add it to the modelRow
   models.forEach((model) => {
     const card = document.createElement('div');
-    card.classList.add('card', 'p-0', 'm-2');
+    card.classList.add('card', 'p-0', 'm-2', 'shadow-sm');
     card.style.width = '18rem';
     const img = document.createElement('img');
     img.classList.add('card-img-top');
-    const imgSrcModel = `${model.id}-${model.name.toLowerCase()}-thumb.jpg`;
-    img.src = `./assets/img/thumb/${imgSrcModel}`;
+    img.src = `./assets/img/thumb/${model.thumbnail}`;
     img.alt = model.name;
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
@@ -19,6 +19,14 @@ getAllModels().then((models) => {
     const cardText = document.createElement('p');
     cardText.classList.add('card-text');
     cardText.innerHTML = model.description;
+    const tagDiv = document.createElement('div');
+    tagDiv.classList.add('mb-2');
+    for (let i = 0; i < model?.tags?.length; i++) {
+      const tag = document.createElement('span');
+      tag.classList.add('badge', 'bg-primary', 'me-1');
+      tag.innerHTML = model.tags[i];
+      tagDiv.appendChild(tag);
+    }
     const cardLink = document.createElement('a');
     cardLink.classList.add('btn', 'btn-primary');
     cardLink.innerHTML = 'Details';
@@ -26,6 +34,7 @@ getAllModels().then((models) => {
     cardLink.href = `/pages/showModel.html?id=${model.id}`;
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
+    cardBody.appendChild(tagDiv);
     cardBody.appendChild(cardLink);
     card.appendChild(img);
     card.appendChild(cardBody);

@@ -1,12 +1,33 @@
 // tell the engine where to find the libs folder
 OV.SetExternalLibLocation('libs');
-let viewer = null;
-window.addEventListener('load', () => {
+
+const getMetaModelData = () => {
+  //get the id of the model from the url
+  var GET = {};
+  var query = window.location.search.substring(1).split('&');
+  for (var i = 0, max = query.length; i < max; i++) {
+    if (query[i] === '')
+      // check for trailing & with no param
+      continue;
+
+    var param = query[i].split('=');
+    GET[decodeURIComponent(param[0])] = decodeURIComponent(param[1] || '');
+  }
+
+  const id = parseInt(GET.id);
+  getAllModels().then((models) => {
+    const model = models.find((model) => model.id === id);
+    loadModel(model?.filename);
+    generateModelInfo(model);
+  });
+};
+
+const loadModel = (filename) => {
   // get the parent element of the viewer
   let parentDiv = document.getElementById('viewer');
 
   // initialize the viewer with the parent element and some parameters
-  viewer = new OV.EmbeddedViewer(parentDiv, {
+  let viewer = new OV.EmbeddedViewer(parentDiv, {
     camera: new OV.Camera(
       new OV.Coord3D(-1.5, -3.0, 2.0),
       new OV.Coord3D(0.0, 0.0, 0.0),
@@ -32,20 +53,16 @@ window.addEventListener('load', () => {
     },
   });
 
-  //get the id of the model from the url
-  var GET = {};
-  var query = window.location.search.substring(1).split('&');
-  for (var i = 0, max = query.length; i < max; i++) {
-    if (query[i] === '')
-      // check for trailing & with no param
-      continue;
-
-    var param = query[i].split('=');
-    GET[decodeURIComponent(param[0])] = decodeURIComponent(param[1] || '');
-  }
-
-  const id = GET.id;
-
   //load the model with the id
-  viewer.LoadModelFromUrls([`../assets/17-sparrenpfettenanker.ply`]);
-});
+  viewer.LoadModelFromUrls([`../assets/${filename}`]);
+};
+
+const generateModelInfo = (model) => {
+  const modelInfo = document.getElementById('modelInfo');
+  const modelName = document.createElement('h1');
+  modelName.classList.add('display-4', 'text-center');
+  modelName.innerHTML = model.name;
+  modelInfo.appendChild(modelName);
+};
+
+getMetaModelData();

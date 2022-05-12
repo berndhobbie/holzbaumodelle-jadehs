@@ -31,7 +31,12 @@ getAllModels().then((models) => {
     cardLink.classList.add('btn', 'btn-primary', 'shadow-sm', 'fw-bold');
     cardLink.innerHTML = 'Zum Modell';
     //generate the id as param for the link
-    cardLink.href = `pages/showModel.html?id=${model.id}`;
+    let githubRepo = '';
+    const host = window.location.host;
+    if (!host.includes('127.0.0.1')) {
+      githubRepo = '/holzbaumodelle';
+    }
+    cardLink.href = `${githubRepo}/pages/showModel.html?id=${model.id}`;
 
     //year of the model
     if (model?.year) {

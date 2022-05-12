@@ -8,7 +8,8 @@ getAllModels().then((models) => {
     card.style.width = '18rem';
     const img = document.createElement('img');
     img.classList.add('card-img-top');
-    img.src = model.image;
+    const imgSrcModel = `${model.id}-${model.name.toLowerCase()}-thumb.jpg`;
+    img.src = `./assets/img/thumb/${imgSrcModel}`;
     img.alt = model.name;
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');

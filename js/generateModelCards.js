@@ -32,6 +32,24 @@ getAllModels().then((models) => {
     cardLink.innerHTML = 'Zum Modell';
     //generate the id as param for the link
     cardLink.href = `/pages/showModel.html?id=${model.id}`;
+
+    //year of the model
+    if (model?.year) {
+      const year = document.createElement('span');
+      year.classList.add(
+        'badge',
+        'rounded-pill',
+        'bg-primary',
+        'shadow-sm',
+        'position-absolute',
+        'top-0',
+        'end-0',
+        'm-2'
+      );
+      year.innerHTML = model.year;
+      card.appendChild(year);
+    }
+
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
     cardBody.appendChild(tagDiv);

@@ -1,6 +1,6 @@
 // tell the engine where to find the libs folder
 OV.SetExternalLibLocation('libs');
-
+console.log(window.location.pathname);
 const getMetaModelData = () => {
   //get the id of the model from the url
   var GET = {};

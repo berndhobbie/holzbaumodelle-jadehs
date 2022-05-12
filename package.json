@@ -1,0 +1,22 @@
+{
+  "name": "holzbaumodelle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hobbiejadehs/holzbaumodelle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hobbiejadehs/holzbaumodelle/issues"
+  },
+  "homepage": "https://github.com/hobbiejadehs/holzbaumodelle#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}

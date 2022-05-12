@@ -23,13 +23,13 @@ getAllModels().then((models) => {
     tagDiv.classList.add('mb-2');
     for (let i = 0; i < model?.tags?.length; i++) {
       const tag = document.createElement('span');
-      tag.classList.add('badge', 'bg-primary', 'me-1');
+      tag.classList.add('badge', 'bg-primary', 'me-1', 'shadow-sm');
       tag.innerHTML = model.tags[i];
       tagDiv.appendChild(tag);
     }
     const cardLink = document.createElement('a');
-    cardLink.classList.add('btn', 'btn-primary');
-    cardLink.innerHTML = 'Details';
+    cardLink.classList.add('btn', 'btn-primary', 'shadow-sm');
+    cardLink.innerHTML = 'Zum Modell';
     //generate the id as param for the link
     cardLink.href = `/pages/showModel.html?id=${model.id}`;
     cardBody.appendChild(cardTitle);

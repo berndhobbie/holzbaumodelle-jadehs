@@ -50,6 +50,7 @@ const loadModel = (filename) => {
     ],
     onModelLoaded: () => {
       console.log('Model loaded');
+      const canvas = document.querySelector('canvas');
     },
   });
 

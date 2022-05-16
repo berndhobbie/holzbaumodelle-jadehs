@@ -57,15 +57,6 @@ const loadModel = (filename) => {
   viewer.LoadModelFromUrls([`../assets/${filename}`]);
 };
 
-// const generateModelInfo = (model) => {
-//   const modelInfo = document.getElementById('modelInfo');
-//   const modelName = document.createElement('h1');
-//   modelName.classList.add('text-center');
-//   modelName.innerHTML = model.name;
-//   modelInfo.appendChild(modelName);
-//   generateModelInfoFooter(model);
-// };
-
 const generateModelInfoFooter = (model) => {
   const footer = document.getElementById('modelInfoFooter');
   const modelNameHeader = document.createElement('h3');

@@ -60,20 +60,16 @@ const loadModel = (filename) => {
 const generateModelInfo = (model) => {
   const modelInfo = document.getElementById('modelInfo');
   const modelName = document.createElement('h1');
-  modelName.classList.add('display-4', 'text-center');
+  modelName.classList.add('text-center');
   modelName.innerHTML = model.name;
   modelInfo.appendChild(modelName);
-  generateTags(model.tags);
+  generateModelInfoFooter(model);
 };
 
-const generateTags = (tags) => {
-  const tagList = document.getElementById('tagList');
-  tags.forEach((tag) => {
-    const tagItem = document.createElement('li');
-    tagItem.classList.add('list-group-item');
-    tagItem.innerHTML = tag;
-    tagList.appendChild(tagItem);
-  });
+const generateModelInfoFooter = (model) => {
+  const footer = document.getElementById('modelInfoFooter');
+  const tagDiv = createTagDiv(model.tags);
+  footer.appendChild(tagDiv);
 };
 
 getMetaModelData();

@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/hobbiejadehs/holzbaumodelle#readme",
   "dependencies": {
-    "bootstrap": "^5.1.3"
+    "bootstrap": "^5.2.0-beta1"
   }
 }

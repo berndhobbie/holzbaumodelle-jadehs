@@ -15,5 +15,29 @@
     "filename": "18-Dreigelenkrahmenecke-Kantholzbinder-mit-Sperrholzlaschen.ply",
     "tags": ["Knoten"],
     "year": "1966"
+  },
+  {
+    "id": 26,
+    "name": "Dreieckbinder - genagelter Fußpunkt",
+    "description": "Nagelbrettbinder-Gurt  aus 2 Brettern und Fülllatte mit 1 Deckbrett",
+    "thumbnail": "26-Dreieckbinder-genagelter-Fußpunkt.jpg",
+    "filename": "",
+    "tags": ["Auflager", "Binder", "Träger"],
+    "year": "1966"
+  },
+  {
+    "id": 1,
+    "name": "Eibe - Stumpf",
+    "thumbnail": "01-Eibe-Stumpf.jpg",
+    "filename": ""
+  },
+  {
+    "id": 2,
+    "name": "DSB - Trägerknoten mit 2-teiligen Streben",
+    "description": "Dreieckstrebenbinder mit Zinken versehenen eingeleimten Streben",
+    "thumbnail": "02-DSB-Trägerknoten-mit-2-teiligen-Streben.jpg",
+    "filename": "",
+    "tags": ["Binder", "Träger", "Strebe", "Gurt", "Knoten", "Anschluss"],
+    "year": "1972"
   }
 ]

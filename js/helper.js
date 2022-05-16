@@ -1,5 +1,5 @@
 const createTagDiv = (tags) => {
-  if (tags.length === 0) return;
+  if (!tags || tags.length === 0) return;
   const tagDiv = document.createElement('div');
   tagDiv.classList.add('mb-2');
   for (let i = 0; i < tags.length; i++) {

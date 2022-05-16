@@ -33,7 +33,7 @@ const loadModel = (filename) => {
       new OV.Coord3D(0.0, 0.0, 0.0),
       new OV.Coord3D(0.0, 0.0, 1.0)
     ),
-    backgroundColor: new OV.Color(255, 255, 255),
+    backgroundColor: new OV.Color(33, 37, 41),
     defaultColor: new OV.Color(200, 200, 200),
     edgeSettings: {
       showEdges: false,
@@ -63,6 +63,17 @@ const generateModelInfo = (model) => {
   modelName.classList.add('display-4', 'text-center');
   modelName.innerHTML = model.name;
   modelInfo.appendChild(modelName);
+  generateTags(model.tags);
+};
+
+const generateTags = (tags) => {
+  const tagList = document.getElementById('tagList');
+  tags.forEach((tag) => {
+    const tagItem = document.createElement('li');
+    tagItem.classList.add('list-group-item');
+    tagItem.innerHTML = tag;
+    tagList.appendChild(tagItem);
+  });
 };
 
 getMetaModelData();

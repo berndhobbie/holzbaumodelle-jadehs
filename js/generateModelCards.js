@@ -19,14 +19,7 @@ getAllModels().then((models) => {
     const cardText = document.createElement('p');
     cardText.classList.add('card-text');
     cardText.innerHTML = model.description;
-    const tagDiv = document.createElement('div');
-    tagDiv.classList.add('mb-2');
-    for (let i = 0; i < model?.tags?.length; i++) {
-      const tag = document.createElement('span');
-      tag.classList.add('badge', 'bg-secondary', 'me-1', 'shadow-sm');
-      tag.innerHTML = model.tags[i];
-      tagDiv.appendChild(tag);
-    }
+    const tagDiv = createTagDiv(model?.tags);
     const cardLink = document.createElement('a');
     cardLink.classList.add('btn', 'btn-primary', 'shadow-sm', 'fw-bold');
     cardLink.innerHTML = 'Zum Modell';

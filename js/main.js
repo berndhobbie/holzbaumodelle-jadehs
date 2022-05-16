@@ -18,7 +18,7 @@ const getMetaModelData = () => {
   getAllModels().then((models) => {
     const model = models.find((model) => model.id === id);
     loadModel(model?.filename);
-    generateModelInfo(model);
+    generateModelInfoFooter(model);
   });
 };
 
@@ -57,18 +57,26 @@ const loadModel = (filename) => {
   viewer.LoadModelFromUrls([`../assets/${filename}`]);
 };
 
-const generateModelInfo = (model) => {
-  const modelInfo = document.getElementById('modelInfo');
-  const modelName = document.createElement('h1');
-  modelName.classList.add('text-center');
-  modelName.innerHTML = model.name;
-  modelInfo.appendChild(modelName);
-  generateModelInfoFooter(model);
-};
+// const generateModelInfo = (model) => {
+//   const modelInfo = document.getElementById('modelInfo');
+//   const modelName = document.createElement('h1');
+//   modelName.classList.add('text-center');
+//   modelName.innerHTML = model.name;
+//   modelInfo.appendChild(modelName);
+//   generateModelInfoFooter(model);
+// };
 
 const generateModelInfoFooter = (model) => {
   const footer = document.getElementById('modelInfoFooter');
+  const modelNameHeader = document.createElement('h3');
+  let footerTitle = `${model?.name}`;
+  if (model?.year) footerTitle += ` (${model?.year})`;
+  modelNameHeader.innerHTML = footerTitle;
+  const modelDescription = document.createElement('p');
+  modelDescription.innerHTML = model?.description;
   const tagDiv = createTagDiv(model.tags);
+  footer.appendChild(modelNameHeader);
+  footer.appendChild(modelDescription);
   footer.appendChild(tagDiv);
 };
 

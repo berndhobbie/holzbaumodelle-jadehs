@@ -18,7 +18,7 @@ const getHostLink = () => {
   const protocol = window.location.protocol;
   let link = `${protocol}//${host}`;
   if (!host.includes("127.0.0.1")) {
-    link += "/holzbaumodelle";
+    link += "/holzbaumodelle-jadehs";
   }
   return link;
 };

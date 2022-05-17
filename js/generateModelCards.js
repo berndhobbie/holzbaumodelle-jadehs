@@ -8,7 +8,8 @@ const renderModelOverview = () => {
     models.forEach((model, index) => {
       const card = document.createElement("div");
       card.classList.add("card", "shadow-sm", "slide-in-left");
-      card.style.animationDelay = `${index * 0.2}s`;
+      card.style.animationDelay = `${index * 0.4}s`;
+      card.style.zIndex = `${index}`;
       const img = document.createElement("img");
       img.classList.add("card-img-top");
       img.src = `./assets/img/thumb/${model.thumbnail}`;

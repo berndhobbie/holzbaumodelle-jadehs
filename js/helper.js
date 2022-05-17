@@ -12,9 +12,7 @@ const createTagDiv = (tags) => {
 };
 
 const getHostLink = () => {
-  //generate the id as param for the link
   const host = window.location.host;
-  const port = window.location.port;
   const protocol = window.location.protocol;
   let link = `${protocol}//${host}`;
   if (!host.includes("127.0.0.1")) {

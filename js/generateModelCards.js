@@ -4,9 +4,11 @@ const renderModelOverview = () => {
   getAllModels().then((models) => {
     allModels = models;
     //generate a bootstrap card for each model and add it to the modelRow
-    models.forEach((model) => {
+
+    models.forEach((model, index) => {
       const card = document.createElement("div");
-      card.classList.add("card", "shadow-sm");
+      card.classList.add("card", "shadow-sm", "slide-in-left");
+      card.style.animationDelay = `${index * 0.2}s`;
       const img = document.createElement("img");
       img.classList.add("card-img-top");
       img.src = `./assets/img/thumb/${model.thumbnail}`;

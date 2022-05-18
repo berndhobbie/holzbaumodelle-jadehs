@@ -5,14 +5,17 @@ const resultMessage = document.getElementById("resultMessage");
 const resetButton = document.getElementById("resetButton");
 let filteredModels = [];
 
-const renderModelOverview = () => {
+const renderModelOverview = (animate) => {
   modelRow.innerHTML = "";
   //generate a bootstrap card for each model and add it to the modelRow
   filteredModels.forEach((model, index) => {
     const card = document.createElement("div");
-    card.classList.add("card", "shadow-sm", "slide-in-left");
-    card.style.animationDelay = `${index * 0.4}s`;
-    card.style.zIndex = `${index}`;
+    card.classList.add("card", "shadow-sm");
+    if (animate) {
+      card.classList.add("slide-in-left");
+      card.style.animationDelay = `${index * 0.4}s`;
+      card.style.zIndex = `${index}`;
+    }
     const img = document.createElement("img");
     img.classList.add("card-img-top");
     img.src = `./assets/img/thumb/${model.thumbnail}`;
@@ -65,7 +68,7 @@ const renderModelOverview = () => {
 
 getAllModels().then(() => {
   filteredModels.push(...allModels);
-  renderModelOverview();
+  renderModelOverview(true);
 });
 
 searchButton.addEventListener("click", () => {
@@ -84,7 +87,7 @@ resetButton.addEventListener("click", () => {
   filteredModels.push(...allModels);
   resultMessage.hidden = true;
   resetButton.hidden = true;
-  renderModelOverview();
+  renderModelOverview(false);
 });
 
 const searchModels = () => {
@@ -100,7 +103,7 @@ const searchModels = () => {
   });
   filteredModels = searchResults;
   createMessage(searchResults.length, searchVal);
-  renderModelOverview();
+  renderModelOverview(false);
 };
 
 const createMessage = (count, searchVal) => {

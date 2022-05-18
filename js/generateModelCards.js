@@ -1,6 +1,8 @@
 const modelRow = document.getElementById("modelRow");
 const searchButton = document.getElementById("searchButton");
 const searchTextInput = document.getElementById("searchTextInput");
+const resultMessage = document.getElementById("resultMessage");
+const resetButton = document.getElementById("resetButton");
 let filteredModels = [];
 
 const renderModelOverview = () => {
@@ -67,16 +69,25 @@ getAllModels().then(() => {
 });
 
 searchButton.addEventListener("click", () => {
-  searachModels();
+  searchModels();
 });
 
 searchTextInput.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
-    searachModels();
+    searchModels();
   }
 });
 
-const searachModels = () => {
+resetButton.addEventListener("click", () => {
+  searchTextInput.value = "";
+  filteredModels = [];
+  filteredModels.push(...allModels);
+  resultMessage.hidden = true;
+  resetButton.hidden = true;
+  renderModelOverview();
+});
+
+const searchModels = () => {
   const searchVal = searchTextInput.value.trim().toLowerCase();
   //get all values from all models which include the search val
   const searchResults = allModels.filter((model) => {
@@ -88,5 +99,12 @@ const searachModels = () => {
     return searchableValues.some((value) => value?.includes(searchVal));
   });
   filteredModels = searchResults;
+  createMessage(searchResults.length, searchVal);
   renderModelOverview();
+};
+
+const createMessage = (count, searchVal) => {
+  resultMessage.hidden = false;
+  resetButton.hidden = false;
+  resultMessage.innerHTML = `${count} Ergebnisse für ${searchVal}`;
 };

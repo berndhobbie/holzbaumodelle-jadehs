@@ -1,11 +1,9 @@
 const modelRow = document.getElementById("modelRow");
 
 const renderModelOverview = () => {
-  getAllModels().then((models) => {
-    allModels = models;
+  getAllModels().then(() => {
     //generate a bootstrap card for each model and add it to the modelRow
-
-    models.forEach((model, index) => {
+    allModels.forEach((model, index) => {
       const card = document.createElement("div");
       card.classList.add("card", "shadow-sm", "slide-in-left");
       card.style.animationDelay = `${index * 0.4}s`;

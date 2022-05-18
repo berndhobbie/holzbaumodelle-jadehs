@@ -15,8 +15,8 @@ const getMetaModelData = () => {
   }
 
   const id = parseInt(GET.id);
-  getAllModels().then((models) => {
-    const model = models.find((model) => model.id === id);
+  getAllModels().then(() => {
+    const model = allModels.find((model) => model.id === id);
     loadModel(model?.filename);
     generateModelInfoFooter(model);
   });
